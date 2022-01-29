@@ -1,5 +1,7 @@
 ## Implementation of semantic segmentation model in pytoch
 ## DeepLabv3+：Encoder-Decoder with Atrous Separable Convolution 
+---
+
 ### CONTENTS
 1. [Performance](#Performance)
 2. [Environment](#Environment)
@@ -32,12 +34,13 @@ Tokaido Dataset：Onedrive network disk of Tokaido Dataset is as follows (tempor
 UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_uh_edu/EqwAVkOiGPhLrgw6bvoBWA8B4TpcCIgSYGhw8viH56RRpQ?e=ltL0Xo  
 
 ### How2train
-1、本文使用VOC格式进行训练。(Because the author is Chinese, many comments on the program source code are written in Chinese, but actually it does not affect the use. Those requiring special comments have been annotated in English.)  
-2、本次比赛，使用excel2txt.py将官方给的csv文件转化为算法适用的txt格式，其中需要修改pred_path(.scv文件目录)和t_type(可选labcmp、labdmg、labdmg_puretex)。
-3、在train.py文件夹下面，选择自己要使用的主干模型和下采样因子。本文提供的主干模型有mobilenet和xception。下采样因子可以在8和16中选择。需要注意的是，预训练模型需要和主干模型相对应。   
-4、注意修改train.py的num_classes为分类个数+1。    
-5、运行train.py即可开始训练（需要先按照下面要求修改train.py中源程序）。
-#### train.py中需要修改的部分
+1、This project uses VOC format for training.(Because the author is Chinese, many comments on the program source code are written in Chinese, but actually it does not affect the use. Those requiring special comments have been annotated in English.)  
+2、In this competition, excel2txt.py is used to convert the official CSV file into TXT format applicable to the algorithm, in which pred_path(.scvfile directory) and t_type(3 parameters are optional, labcmp、labdmg、labdmg_puretex) needs to be modified.
+3、In the train.py, select the backbone model and down sampling factor you want to use. The backbone models provided in this paper are mobilenet and xception. The down sampling factor can be selected from 8 and 16. It should be noted that the pre training model should correspond to the backbone model.
+4、Pay attention to modifying the num_classes of the train.py as the number of categories + 1.    
+5、Run the train.py to start training (you need to modify the source program in the train.py according to the following requirements first).
+
+#### Part to be modified in train.py
     #   Training our own data sets must be modified
     #   The number of categories you need + 1, such as 2 + 1
     #   labcmp:num_classes = 9
