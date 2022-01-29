@@ -126,16 +126,16 @@ UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_
 ### How2predict
 #### a、Use pretraining weights
 1、After downloading the library, unzip it. If you want to use the backbone for mobile prediction, run predict.py is OK;
-If you want to use backbone for xception prediction, Download deeplab_xception.pth on Baidu Cloud, put in model_data, modify backbone of deeplab.py and model_path and then run predict.py, enter.
+If you want to use backbone for xception prediction, Download deeplab_xception.pth on Baidu Cloud, put in model_data, modify backbone of deeplab.py and model_path and then run predict.py, enter:  
 ```python
 img/test.jpg
 ```
 The forecast can be completed.   
+
 2、After setting in predict.py, FPS test, whole folder test and video detection can be carried out.    
 #### b、Use your training weights
 1、Follow the training steps。    
-2、In predict.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files.      
-**model_path corresponds to the weight file under the logs folder, num_classes represents the number of classes to be predicted plus 1. Backbone is the backbone feature extraction network used.** 
+2、In predict.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files.  **model_path corresponds to the weight file under the logs folder, num_classes represents the number of classes to be predicted plus 1. Backbone is the backbone feature extraction network used.** 
 ```python
     # -------------------------------------------------------------------------#
     #   If you want to modify the color of the corresponding category, you can modify self.colors in the generate function
