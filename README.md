@@ -39,34 +39,61 @@ UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_
 4、注意修改train.py的num_classes为分类个数+1。    
 5、运行train.py即可开始训练（需要先按照下面要求修改train.py中源程序）。
 #### train.py中需要修改的部分
- # -------------------------------#
-    #   训练自己的数据集必须要修改的
-    #   自己需要的分类个数+1，如2+1
+    #   Training our own data sets must be modified
+    #   The number of categories you need + 1, such as 2 + 1
     #   labcmp:num_classes = 9
     #   labdmg:num_classes = 4
     # -------------------------------#
     num_classes = 9
-
     # -------------------------------------------------------------------#
-    #   所使用的的主干网络：mobilenet、xception 
-    #   测试的模型，分为“labcmp、labdmg、labdmg_puretex”
-    #   在使用xception作为主干网络时，建议在训练参数设置部分调小学习率，如：
+    #   Backbone network used：mobilenet、xception 
+    #   Test model:Divided into “labcmp、labdmg、labdmg_puretex”
+    #   When using Xception as the backbone network, it is recommended to reduce the learning rate in the part of training parameter setting, such as:
     #   Freeze_lr   = 3e-4
     #   Unfreeze_lr = 1e-5
     # -------------------------------------------------------------------#
     backbone = "mobilenet"
     model_path = "model_data\deeplab_mobilenetv2.pth"
-    #   下采样的倍数8、16 
-    #   8下采样的倍数较小、理论上效果更好，但也要求更大的显存
+    #   The multiples of down sampling can be 8 or 16
+    #   If 8 is selected, the down sampling multiple is smaller and the effect is better in theory, but larger video memory is also required
     # ---------------------------------------------------------#
     downsample_factor = 8
     # ------------------------------#
-    #   VOCdevkit_path是数据集路径,datafolder是路径下的训练对象文件夹路径(labcmp或labdmg或者labdmg_puretex)
+    #   VOCdevkit_path is the data set path, and datafolder is the training object folder path under the path (labcmp, labdmg or labdmg_puretex)
     # ------------------------------#
     VOCdevkit_path = 'SHMdata'
     datafolder = 'labcmp'
+    # ----------------------------------------------------#
+    #   The training is divided into two stages: freezing stage and Unfreezing stage.
+    #   Insufficient video memory has nothing to do with the size of the dataset. It indicates that insufficient video memory. Please turn down batch_size。
+    #   Affected by BatchNorm layer, batch_ The minimum size is 2 and cannot be 1.
+    # ----------------------------------------------------#
+    # ----------------------------------------------------#
+    #   Freeze stage training parameters
+    #   At this time, the backbone of the model is frozen, and the feature extraction network does not change
+    #   The occupied video memory is small, and only fine tune the network
+    # ----------------------------------------------------#
+    Init_Epoch = 50
+    Freeze_Epoch = 50
+    Freeze_batch_size = 16
+    Freeze_lr = 3e-4
+    # ----------------------------------------------------#
+    #   Unfreeze stage training parameters
+    #   At this time, the backbone of the model is not frozen, and the feature extraction network will change
+    #   The occupied video memory is large, and all parameters of the network will change
+    # ----------------------------------------------------#
+    UnFreeze_Epoch = 100
+    Unfreeze_batch_size = 2
+    Unfreeze_lr = 2e-8
+    # ---------------------------#
+    #   Read TXT corresponding to data set
+    #   You need to put relevant txt files in this directory for training
+    # ---------------------------#
+    with open(os.path.join(VOCdevkit_path, datafolder, "ImageSets/Segmentation/train.txt"), "r") as f:
+        train_lines = f.readlines()
 
-
+    with open(os.path.join(VOCdevkit_path, datafolder, "ImageSets/Segmentation/val.txt"), "r") as f:
+        val_lines = f.readlines()
 
 
 ### How2predict
