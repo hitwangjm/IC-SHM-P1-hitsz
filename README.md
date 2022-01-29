@@ -29,23 +29,23 @@ torch==1.7.1(CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
 ### Program
 #### 首先介绍主要的py文件
 train.py：主训练程序      
-predict.py:主预测程序 
-get_miou.py：计算mIOU和mPA的程序 
-excel2txt.py：将比赛官方给的csv表格转换为txt格式  
-deeplab.py：神经网络程序 
-submission_helper.py：比赛结果提交程序 
-machine2man.py：将掩膜上色（可以不用）
-summary.py：查看神经网络结果的程序（可以不用）
-fig_plot.py：绘制损伤函数图像（可以不用）
-json_to_dataset.py：数据集格式转换（可以不用）
-voc_annotation.py：用来划分训练集、测试集、验证集的程序（可以不用）
+predict.py:主预测程序       
+get_miou.py：计算mIOU和mPA的程序       
+excel2txt.py：将比赛官方给的csv表格转换为txt格式        
+deeplab.py：神经网络程序       
+submission_helper.py：比赛结果提交程序       
+machine2man.py：将掩膜上色（可以不用）      
+summary.py：查看神经网络结果的程序（可以不用）      
+fig_plot.py：绘制损伤函数图像（可以不用）      
+json_to_dataset.py：数据集格式转换（可以不用）      
+voc_annotation.py：用来划分训练集、测试集、验证集的程序（可以不用）      
 
 ##### 接着介绍主要文件夹
-logs：保存训练结果文件的文件夹
-model_data：保存主干网络文件的文件夹
-SHMdata：保存训练集、测试集、验证集的文件夹
-nets：主干网络对应的程序
-utils：其他重要函数
+logs：保存训练结果文件的文件夹      
+model_data：保存主干网络文件的文件夹      
+SHMdata：保存训练集、测试集、验证集的文件夹      
+nets：主干网络对应的程序      
+utils：其他重要函数      
 
 ### Attention   
 The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VOC extended dataset training. Pay attention to modifying the backbone during training and prediction.
@@ -60,10 +60,10 @@ UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_
 
 ### How2train
 1、This project uses VOC format for training.(Because the author is Chinese, many comments on the program source code are written in Chinese, but actually it does not affect the use. Those requiring special comments have been annotated in English.)  
-2、In this competition, excel2txt.py is used to convert the official CSV file into TXT format applicable to the algorithm, in which pred_path(.scvfile directory) and t_type(3 parameters are optional, labcmp、labdmg、labdmg_puretex) needs to be modified.
-3、In the train.py, select the backbone model and down sampling factor you want to use. The backbone models provided in this paper are mobilenet and xception. The down sampling factor can be selected from 8 and 16. It should be noted that the pre training model should correspond to the backbone model.
+2、In this competition, excel2txt.py is used to convert the official CSV file into TXT format applicable to the algorithm, in which pred_path(.scvfile directory) and t_type(3 parameters are optional, labcmp、labdmg、labdmg_puretex) needs to be modified.      
+3、In the train.py, select the backbone model and down sampling factor you want to use. The backbone models provided in this paper are mobilenet and xception. The down sampling factor can be selected from 8 and 16. It should be noted that the pre training model should correspond to the backbone model.      
 4、Pay attention to modifying the num_classes of the train.py as the number of categories + 1.    
-5、Run the train.py to start training (you need to modify the source program in the train.py according to the following requirements first).
+5、Run the train.py to start training (you need to modify the source program in the train.py according to the following requirements first).      
 
 #### Part to be modified in train.py
     #   Training our own data sets must be modified
@@ -134,7 +134,7 @@ The forecast can be completed.
 2、After setting in predict.py, FPS test, whole folder test and video detection can be carried out.    
 #### b、Use your training weights
 1、Follow the training steps。    
-2、In predict.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files
+2、In predict.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files.      
 **model_path corresponds to the weight file under the logs folder, num_classes represents the number of classes to be predicted plus 1. Backbone is the backbone feature extraction network used.** 
 ```python
     # -------------------------------------------------------------------------#
@@ -186,18 +186,18 @@ The forecast can be completed.
     # -------------------------------------------------------------------------#
     dir_origin_path = "SHMdata/JPEGImages"
     dir_save_path = "img_out/"
- 
+ ```
 3、run predict.py, and input:    
 ```python
 img/test.jpg
 ```
-The forecast can be completed.  
-4、After setting in predict.py, FPS test, whole folder test and video detection can be carried out. 
+The forecast can be completed.    
+4、After setting in predict.py, FPS test, whole folder test and video detection can be carried out.   
 
 ### mIOU&mPA
-1、Set num_classes in get_miou.py as the number of predicted classes plus 1.  
-2、Set name_classes in get_miou.py are the categories that need to be distinguished.  
-3、Run get_miou.py, then get mIOU and mPA. 
+1、Set num_classes in get_miou.py as the number of predicted classes plus 1.    
+2、Set name_classes in get_miou.py are the categories that need to be distinguished.    
+3、Run get_miou.py, then get mIOU and mPA.   
 
 ### Reference
 https://github.com/ggyyzm/pytorch_segmentation  
