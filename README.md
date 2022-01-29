@@ -97,17 +97,18 @@ UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_
 
 
 ### How2predict
-#### a、使用预训练权重
-1、下载完库后解压，如果想用backbone为mobilenet的进行预测，直接运行predict.py就可以了；如果想要利用backbone为xception的进行预测，在百度网盘下载deeplab_xception.pth，放入model_data，修改deeplab.py的backbone和model_path之后再运行predict.py，输入。  
+#### a、Use pretraining weights
+1、After downloading the library, unzip it. If you want to use the backbone for mobile prediction, run predict.py is OK;
+If you want to use backbone for xception prediction, Download deeplab_xception.pth on Baidu Cloud, put in model_data, modify backbone of deeplab.py and model_path and then run predict.py, enter.
 ```python
-img/street.jpg
+img/test.jpg
 ```
-可完成预测。    
-2、在predict.py里面进行设置可以进行fps测试、整个文件夹的测试和video视频检测。       
-
-#### b、使用自己训练的权重
-1、按照训练步骤训练。    
-2、在deeplab.py文件里面，在如下部分修改model_path、num_classes、backbone使其对应训练好的文件；**model_path对应logs文件夹下面的权值文件，num_classes代表要预测的类的数量加1，backbone是所使用的主干特征提取网络**。    
+The forecast can be completed.   
+2、After setting in predict.py, FPS test, whole folder test and video detection can be carried out.    
+#### b、Use your training weights
+1、Follow the training steps。    
+2、In deeplab.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files
+**model_path corresponds to the weight file under the logs folder, num_classes represents the number of classes to be predicted plus 1. Backbone is the backbone feature extraction network used.** 
 ```python
 _defaults = {
     #----------------------------------------#
@@ -143,18 +144,19 @@ _defaults = {
     "cuda"              : True,
 }
 ```
-3、运行predict.py，输入    
+3、run predict.py, and input:    
 ```python
-img/street.jpg
+img/test.jpg
 ```
-可完成预测。    
-4、在predict.py里面进行设置可以进行fps测试、整个文件夹的测试和video视频检测。   
+The forecast can be completed.  
+4、After setting in predict.py, FPS test, whole folder test and video detection can be carried out. 
 
 ### mIOU&mPA
-1、设置get_miou.py里面的num_classes为预测的类的数量加1。  
-2、设置get_miou.py里面的name_classes为需要去区分的类别。  
-3、运行get_miou.py即可获得miou大小。  
+1、Set num_classes in get_miou.py as the number of predicted classes plus 1.
+2、Set name_classes in get_miou.py are the categories that need to be distinguished.  
+3、Run get_miou.py, then get mIOU and mPA。  
 
 ### Reference
 https://github.com/ggyyzm/pytorch_segmentation  
 https://github.com/bonlime/keras-deeplab-v3-plus
+https://github.com/bubbliiiing/deeplabv3-plus-pytorch
