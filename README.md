@@ -194,9 +194,9 @@ The forecast can be completed.
 4、After setting in predict.py, FPS test, whole folder test and video detection can be carried out. 
 
 ### mIOU&mPA
-1、Set num_classes in get_miou.py as the number of predicted classes plus 1.
+1、Set num_classes in get_miou.py as the number of predicted classes plus 1.  
 2、Set name_classes in get_miou.py are the categories that need to be distinguished.  
-3、Run get_miou.py, then get mIOU and mPA。  
+3、Run get_miou.py, then get mIOU and mPA. 
 
 ### Reference
 https://github.com/ggyyzm/pytorch_segmentation  
