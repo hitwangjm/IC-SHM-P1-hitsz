@@ -5,7 +5,7 @@
 ### CONTENTS
 1. [Performance](#Performance)
 2. [Environment](#Environment)
-3. [Program introduction](#Program introduction)
+3. [Program introduction](#Program)
 4. [Attention: Matters needing attention](#Attention)
 5. [Download:File download](#Download)
 6. [How2train:Training steps](#How2train)
@@ -25,7 +25,7 @@
 torch==1.2.0(CUDA9/CUDA10，which is supported by NVIDIA RTX20 Series graphics card and previous versions)(Please refer to requirements_cuda10.txt for other requirements)
 torch==1.7.1(CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
 
-### Program introduction
+### Program
 #### 首先介绍主要的py文件
 train.py：主训练程序 。
 predict.py:主预测程序 
