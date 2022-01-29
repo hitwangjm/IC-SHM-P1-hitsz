@@ -205,4 +205,4 @@ The forecast can be completed.
 https://github.com/ggyyzm/pytorch_segmentation  
 https://github.com/bonlime/keras-deeplab-v3-plus   
 https://github.com/bubbliiiing/deeplabv3-plus-pytorch  
-(My github)https://github.com/hitwangjm/IC-SHM-P1
+(My github)https://github.com/hitwangjm/IC-SHM-P1-hitsz
