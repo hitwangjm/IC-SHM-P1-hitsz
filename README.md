@@ -13,12 +13,12 @@
 8. [Reference](#Reference)
 
 ### Performance
-| Train dataset | Weight filename | Test dataset | Input picture size | mIOU | 
+| Train dataset | Weight filename | Test dataset | Input picture size | mIOU |  mPA | 
 | :-----: | :-----: | :------: | :------: | :------: | 
-| Tokaido damage dataset | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | VOC-Val12 | 512x512| 72.59 | 
-| Tokaido damage dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
-| Tokaido component dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
-| Tokaido component dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
+| Tokaido_damage_dataset_train | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | Tokaido_damage_dataset_test | 512x512| 66.43 | 77.59 |
+| Tokaido_damage_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_damage_dataset_test | 512x512| 65.9 | 75.53 |
+| Tokaido_component_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_component_dataset_test | 512x512| 71.08 | 75.33 | 
+| Tokaido_component_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_component_dataset_test | 512x512| 66.80 | 74.06 | 
 
 ### Environment
 torch==1.2.0(CUDA9/CUDA10，which is supported by NVIDIA RTX20 Series graphics card and previous versions)(Please refer to requirements_cuda10.txt for other requirements)
