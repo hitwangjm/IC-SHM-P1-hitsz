@@ -29,25 +29,25 @@ torch==1.7.1
 (CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
 
 ### Program
-#### 首先介绍主要的py文件
-train.py：主训练程序      
-predict.py:主预测程序       
-get_miou.py：计算mIOU和mPA的程序       
-excel2txt.py：将比赛官方给的csv表格转换为txt格式        
-deeplab.py：神经网络程序       
-submission_helper.py：比赛结果提交程序       
-machine2man.py：将掩膜上色（可以不用）      
-summary.py：查看神经网络结果的程序（可以不用）      
-fig_plot.py：绘制损伤函数图像（可以不用）      
-json_to_dataset.py：数据集格式转换（可以不用）      
-voc_annotation.py：用来划分训练集、测试集、验证集的程序（可以不用）      
+#### First, introduce the main py files
+train.py：main training program      
+predict.py:main predictor       
+get_miou.py：program for calculating mIOU and mPA      
+excel2txt.py：convert the CSV form given by the official competition to TXT format
+deeplab.py：neural network program       
+submission_helper.py：competition result submission procedure       
+machine2man.py：color the mask (it can not be used)      
+summary.py：program to view the results of neural network (it can not be used)      
+fig_plot.py：draw damage function image (can not be used)      
+json_to_dataset.py：data set format conversion (can not be used)      
+voc_annotation.py：the program used to divide training set, test set and verification set (it can not be used)     
 
-##### 接着介绍主要文件夹
-logs：保存训练结果文件的文件夹      
-model_data：保存主干网络文件的文件夹      
-SHMdata：保存训练集、测试集、验证集的文件夹      
-nets：主干网络对应的程序      
-utils：其他重要函数      
+##### Then, introduce the main folders
+logs：the folder where the training result file is saved  
+model_data：the folder where the backbone network files are saved   
+SHMdata：folder for saving train set, test set and validation set      
+nets：the program corresponding to the backbone network       
+utils：other important functions 
 
 ### Attention   
 The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VOC extended dataset training. Pay attention to modifying the backbone during training and prediction.
