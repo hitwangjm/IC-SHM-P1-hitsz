@@ -3,7 +3,7 @@
 ---
 ### CONTENTS
 1. [Performance](#Performance)
-2. [Environment](#Required environment)
+2. [Environment](#Environment)
 3. [Attention](#Matters needing attention)
 4. [Download](#File download)
 5. [How2train](#Training steps)
