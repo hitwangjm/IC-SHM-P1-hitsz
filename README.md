@@ -22,9 +22,11 @@
 | Tokaido_component_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_component_dataset_test | 512x512| 66.80 | 74.06 | 
 
 ### Environment
-torch==1.2.0(CUDA9/CUDA10，which is supported by NVIDIA RTX20 Series graphics card and previous versions)(Please refer to requirements_cuda10.txt for other requirements)
+torch==1.2.0    
+(CUDA9/CUDA10，which is supported by NVIDIA RTX20 Series graphics card and previous versions)(Please refer to requirements_cuda10.txt for other requirements)
 
-torch==1.7.1(CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
+torch==1.7.1    
+(CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
 
 ### Program
 #### 首先介绍主要的py文件
