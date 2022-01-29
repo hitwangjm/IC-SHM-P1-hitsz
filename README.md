@@ -15,8 +15,10 @@
 ### Performance
 | Train dataset | Weight filename | Test dataset | Input picture size | mIOU | 
 | :-----: | :-----: | :------: | :------: | :------: | 
-| VOC12+SBD | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | VOC-Val12 | 512x512| 72.59 | 
-| VOC12+SBD | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
+| Tokaido damage dataset | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | VOC-Val12 | 512x512| 72.59 | 
+| Tokaido damage dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
+| Tokaido component dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
+| Tokaido component dataset | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | VOC-Val12 | 512x512| 76.95 | 
 
 ### Environment
 torch==1.2.0(CUDA9/CUDA10，which is supported by NVIDIA RTX20 Series graphics card and previous versions)(Please refer to requirements_cuda10.txt for other requirements)
@@ -112,15 +114,15 @@ The forecast can be completed.
 2、In predict.py, modify the model in the following model_path、num_classes and backbone make them correspond to the trained files
 **model_path corresponds to the weight file under the logs folder, num_classes represents the number of classes to be predicted plus 1. Backbone is the backbone feature extraction network used.** 
 ```python
-  # -------------------------------------------------------------------------#
-    #   如果想要修改对应种类的颜色，到generate函数里修改self.colors即可
-    #   get_mode表示测试的模型，分为“labcmp、labdmg、labdmg_puretex”
+    # -------------------------------------------------------------------------#
+    #   If you want to modify the color of the corresponding category, you can modify self.colors in the generate function
+    #   get_mode refers to the test model, which is divided into "labcmp, labdmg, labdmg_puretex"
     # -------------------------------------------------------------------------#
     pr_model_path = r'logs\220102xception损伤检测桥梁ep100-loss0.065-val_loss0.083.pth'
     get_mode = 'labcmp'
     if get_mode == 'labcmp':
         # ------------------------------#
-        #   分类个数+1、如2+1
+        #   Number of classifications + 1, e.g. 2 + 1
         # ------------------------------#
         num_classes = 9
     else:
@@ -129,39 +131,38 @@ The forecast can be completed.
         downsample_factor = 8
     deeplab = DeeplabV3(pr_model_path, num_classes, backbone, downsample_factor)
     # ----------------------------------------------------------------------------------------------------------#
-    #   mode用于指定测试的模式：
-    #   'txt_predict'表示训练集体输出（特殊模式），后期完善此注释！！！
-    #   'predict'表示单张图片预测，如果想对预测过程进行修改，如保存图片，截取对象等，可以先看下方详细的注释
-    #   'video'表示视频检测，可调用摄像头或者视频进行检测，详情查看下方注释。
-    #   'fps'表示测试fps，使用的图片是img里面的street.jpg，详情查看下方注释。
-    #   'dir_predict'表示遍历文件夹进行检测并保存。默认遍历img文件夹，保存img_out文件夹，详情查看下方注释。
+    #   mode specifies the mode of the test:
+    #   'txt_predict'indicates the training collective output. The mode to be selected in the competition is this mode. Here, the result of semantic segmentation is added with distinguishable colors by default. If you need to use a mask, you can use 'dir_predict' mode, or use mIOU related programs.
+    #   'predict' indicates the prediction of a single picture. If you want to modify the prediction process, such as saving pictures, intercepting objects, etc.
+    #   'video' means video detection. You can call the camera or video for detection.
+    #   'fps' means testing FPS. The image used is street.jpg in img folder.
+    #   'dir_predict' means to traverse the folder for detection and save. Traverse img folder by default and save in img_out folder.
     # ----------------------------------------------------------------------------------------------------------#
     mode = "txt_predict"
     # ----------------------------------------------------------------------------------------------------------#
-    #   video_path用于指定视频的路径，当video_path=0时表示检测摄像头
-    #   想要检测视频，则设置如video_path = "xxx.mp4"即可，代表读取出根目录下的xxx.mp4文件。
-    #   video_save_path表示视频保存的路径，当video_save_path=""时表示不保存
-    #   想要保存视频，则设置如video_save_path = "yyy.mp4"即可，代表保存为根目录下的yyy.mp4文件。
-    #   video_fps用于保存的视频的fps
-    #   video_path、video_save_path和video_fps仅在mode='video'时有效
-    #   保存视频时需要ctrl+c退出或者运行到最后一帧才会完成完整的保存步骤。
+    #   video_ Path is used to specify the path of the video. When video_path=0, the camera is detected
+    #   If you want to detect video, set it as video_path = "xxx.mp4" can be used to read xxx.mp4 in the root directory MP4 file.
+    #   video_save_path indicates the path where the video is saved, and video_save_path="" means no saving
+    #   If you want to save the video, set it as video_save_path = "yyy.mp4", which means yyy.mp4 is saved in the root directory.
+    #   video_fps for saved fps of video
+    #   video_path、video_save_path and video_fps is valid only when mode='video'.
+    #   When saving the video, you need to Ctrl + C to exit or run to the last frame to complete the complete saving steps.
     # ----------------------------------------------------------------------------------------------------------#
     video_path = 0
     video_save_path = ""
     video_fps = 25.0
     # -------------------------------------------------------------------------#
-    #   test_interval用于指定测量fps的时候，图片检测的次数
-    #   理论上test_interval越大，fps越准确。
+    #   test_interval is used to specify the number of image detection when FPS is measured
+    #   Theoretically, the larger the test_interval, the more accurate the FPS is.
     # -------------------------------------------------------------------------#
     test_interval = 100
     # -------------------------------------------------------------------------#
-    #   dir_origin_path指定了用于检测的图片的文件夹路径
-    #   dir_save_path指定了检测完图片的保存路径
-    #   dir_origin_path和dir_save_path仅在mode='dir_predict'时有效
+    #   dir_origin_path specifies the folder path of the pictures to be detected
+    #   dir_save_path specifies the path to save the detected image
+    #   dir_origin_path and dir_save_path are valid only when mode='dir_predict.
     # -------------------------------------------------------------------------#
     dir_origin_path = "SHMdata/JPEGImages"
     dir_save_path = "img_out/"
-
  
 3、run predict.py, and input:    
 ```python
