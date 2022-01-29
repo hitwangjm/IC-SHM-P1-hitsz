@@ -1,15 +1,15 @@
-## DeepLabv3+：Encoder-Decoder with Atrous Separable Convolution语义分割模型在Pytorch当中的实现
+## Implementation of semantic segmentation model in pytoch
+## DeepLabv3+：Encoder-Decoder with Atrous Separable Convolution 
 ---
-
-### 目录
-1. [性能情况 Performance](#性能情况)
-2. [所需环境 Environment](#所需环境)
-3. [注意事项 Attention](#注意事项)
-4. [文件下载 Download](#文件下载)
-5. [训练步骤 How2train](#训练步骤)
-6. [预测步骤 How2predict](#预测步骤)
-7. [评估步骤 miou](#评估步骤)
-8. [参考资料 Reference](#Reference)
+### CONTENTS
+1. [Performance](#Performance)
+2. [Environment](#Required environment)
+3. [Attention](#Matters needing attention)
+4. [Download](#File download)
+5. [How2train](#Training steps)
+6. [How2predict](#Prediction steps)
+7. [mIOU&mPA](#Evaluation steps)
+8. [Reference](#Reference)
 
 ### 性能情况
 | 训练数据集 | 权值文件名称 | 测试数据集 | 输入图片大小 | mIOU | 
