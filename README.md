@@ -18,7 +18,7 @@
 | :-----: | :-----: | :------: | :------: | :------: | :------: |
 | Tokaido_damage_dataset_train | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | Tokaido_damage_dataset_test | 512x512| 66.43 | 77.59 |
 | Tokaido_damage_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_damage_dataset_test | 512x512| 65.9 | 75.53 |
-| Tokaido_component_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_component_dataset_test | 512x512| 71.08 | 75.33 | 
+| Tokaido_component_dataset_train | [deeplab_mobilenetv2.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_mobilenetv2.pth) | Tokaido_component_dataset_test | 512x512| 71.08 | 75.33 | 
 | Tokaido_component_dataset_train | [deeplab_xception.pth](https://github.com/bubbliiiing/deeplabv3-plus-pytorch/releases/download/v1.0/deeplab_xception.pth) | Tokaido_component_dataset_test | 512x512| 66.80 | 74.06 | 
 
 ### Environment
