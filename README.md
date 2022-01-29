@@ -27,7 +27,7 @@ torch==1.7.1(CUDA11.0, which is supported by NVIDIA RTX30 Series graphics card)
 
 ### Program introduction
 #### 首先介绍主要的py文件
-train.py：主训练程序 
+train.py：主训练程序 ;
 predict.py:主预测程序 
 get_miou.py：计算mIOU和mPA的程序 
 excel2txt.py：将比赛官方给的csv表格转换为txt格式  
