@@ -4,7 +4,7 @@
 ### CONTENTS
 1. [Performance](#Performance)
 2. [Environment](#Environment)
-3. [Attention](#Matters needing attention)
+3. [Attention Matters needing attention](#Attention)
 4. [Download](#File download)
 5. [How2train](#Training steps)
 6. [How2predict](#Prediction steps)
@@ -20,7 +20,7 @@
 ### Environment
 torch==1.2.0
 
-### Matters needing attention
+### Attention
 代码中的deeplab_mobilenetv2.pth和deeplab_xception.pth是基于VOC拓展数据集训练的。训练和预测时注意修改backbone。    
 
 ### File download
