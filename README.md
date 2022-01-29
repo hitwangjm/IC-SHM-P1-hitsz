@@ -24,11 +24,12 @@ torch==1.2.0
 代码中的deeplab_mobilenetv2.pth和deeplab_xception.pth是基于VOC拓展数据集训练的。训练和预测时注意修改backbone。    
 
 ### Download
-训练所需的deeplab_mobilenetv2.pth和deeplab_xception.pth可在百度网盘中下载。     
-链接: https://pan.baidu.com/s/1nDzHR803q8SsGZfnOoOIsg 提取码: x9cb  
+Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from this link.
+Baidu Cloud: https://pan.baidu.com/s/10l5_HaNXw7ZDU_4Mgfu1lA 
+Extraction Code: 4p4g
 
-VOC拓展数据集的百度网盘如下：  
-链接: https://pan.baidu.com/s/1BrR7AUM1XJvPWjKMIy2uEw 提取码: vszf    
+Tokaido Dataset：Onedrive network disk of Tokaido Dataset is as follows (temporarily unavailable):  
+UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_uh_edu/EqwAVkOiGPhLrgw6bvoBWA8B4TpcCIgSYGhw8viH56RRpQ?e=ltL0Xo  
 
 ### How2train
 #### a、训练voc数据集
