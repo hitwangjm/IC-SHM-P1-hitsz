@@ -55,7 +55,7 @@ The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VO
 ### Download
 Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from this link.
 
-Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4Djz   
+Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4DjzA   
 Extraction Code: 2021
 
 Tokaido Dataset：Onedrive network disk of Tokaido Dataset is as follows (temporarily unavailable):  
