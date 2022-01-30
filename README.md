@@ -53,10 +53,11 @@ utils：other important functions
 The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VOC extended dataset training. Pay attention to modifying the backbone during training and prediction.
 
 ### Download
-Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from this link.
+Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from Google drive.
+Baidu Cloud:    
+Extraction Code: 2021     
+Google drive: https://drive.google.com/drive/folders/19HYqKXi662qB-hZd8NCeAfZP78sA56kW?usp=sharing
 
-Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4DjzA   
-Extraction Code: 2021
 
 Tokaido Dataset：Onedrive network disk of Tokaido Dataset is as follows (temporarily unavailable):  
 UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_uh_edu/EqwAVkOiGPhLrgw6bvoBWA8B4TpcCIgSYGhw8viH56RRpQ?e=ltL0Xo  
