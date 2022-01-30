@@ -53,21 +53,31 @@ utils：other important functions
 The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VOC extended dataset training. Pay attention to modifying the backbone during training and prediction.
 
 ### Download
-Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from Google drive.
-Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4DjzA      
-Extraction Code: 2021     
-Google drive: https://drive.google.com/drive/folders/19HYqKXi662qB-hZd8NCeAfZP78sA56kW?usp=sharing
-
+Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from Google drive.    
+Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4DjzA   
+Extraction Code: 2021  
+Google drive: https://drive.google.com/drive/folders/19HYqKXi662qB-hZd8NCeAfZP78sA56kW?usp=sharing  
 
 Tokaido Dataset：Onedrive network disk of Tokaido Dataset is as follows (temporarily unavailable):  
 UofH OneDrive: https://uofh-my.sharepoint.com/:f:/g/personal/vhoskere_cougarnet_uh_edu/EqwAVkOiGPhLrgw6bvoBWA8B4TpcCIgSYGhw8viH56RRpQ?e=ltL0Xo  
 
 ### How2train
-1、This project uses VOC format for training.(Because the author is Chinese, many comments on the program source code are written in Chinese, but actually it does not affect the use. Those requiring special comments have been annotated in English.)  
-2、In this competition, excel2txt.py is used to convert the official CSV file into TXT format applicable to the algorithm, in which pred_path(.scvfile directory) and t_type(3 parameters are optional, labcmp、labdmg、labdmg_puretex) needs to be modified.      
-3、In the train.py, select the backbone model and down sampling factor you want to use. The backbone models provided in this paper are mobilenet and xception. The down sampling factor can be selected from 8 and 16. It should be noted that the pre training model should correspond to the backbone model.      
-4、Pay attention to modifying the num_classes of the train.py as the number of categories + 1.    
-5、Run the train.py to start training (you need to modify the source program in the train.py according to the following requirements first).      
+
+**1、I have uploaded the first step to kaggle where you can choose to download your datasets directly on kaggle.  
+kaggle link: https://www.kaggle.com/dataset/223739a153789866e7336123dae24bac12a13926a6089324c085c5aa956c1c3d
+
+[Optional]
+Competition officials gave Tokaido_dataset. Before training, you need to put the relevant data into the corresponding folder
+a）Original picture: first, put all the picture in Tokaido_dataset/images_puretex and Tokaido_dataset/img_syn_raw to ./SHMdata/JPEGImages.
+b）mask: then, put the mask in Tokaido_dataset/synthetic/labdmg and Tokaido_dataset/synthetic/test/labcmp to ./SHMdata/labcmp/SegmentationClass; put mask in Tokaido_dataset/synthetic/train/labdmg and Tokaido_dataset/synthetic/test/labdmg to ./SHMdata/labdmg/SegmentationClass(at the same time, make a copy and put it in ./SHMdata/labdmg_puretex/SegmentationClass).
+c)mask: finally, put the mask in Tokaido_dataset/synthetic_puretex/train/labdmg to ./SHMdata/labdmg_puretex/SegmentationClass.
+[Optional]
+
+2、This project uses VOC format for training.(Because the author is Chinese, many comments on the program source code are written in Chinese, but actually it does not affect the use. Those requiring special comments have been annotated in English.)  
+3、In this competition, excel2txt.py is used to convert the official CSV file into TXT format applicable to the algorithm, in which pred_path(.scvfile directory) and t_type(3 parameters are optional, labcmp、labdmg、labdmg_puretex) needs to be modified.      
+4、In the train.py, select the backbone model and down sampling factor you want to use. The backbone models provided in this paper are mobilenet and xception. The down sampling factor can be selected from 8 and 16. It should be noted that the pre training model should correspond to the backbone model.      
+5、Pay attention to modifying the num_classes of the train.py as the number of categories + 1.    
+6、Run the train.py to start training (you need to modify the source program in the train.py according to the following requirements first).      
 
 #### Part to be modified in train.py
     #   Training our own data sets must be modified
