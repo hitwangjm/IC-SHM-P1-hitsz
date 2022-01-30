@@ -54,7 +54,7 @@ The deeplab_mobilenetv2.pth and deeplab_xception.pth in the code are based on VO
 
 ### Download
 Backbone network file required for training: deeplab_mobilenetv2.pth and deeplab_xception.pth can be downloaded from Baidu Cloud or from Google drive.
-Baidu Cloud:    
+Baidu Cloud: https://pan.baidu.com/s/194LVYFNTtTutL_WgM4DjzA      
 Extraction Code: 2021     
 Google drive: https://drive.google.com/drive/folders/19HYqKXi662qB-hZd8NCeAfZP78sA56kW?usp=sharing
 
